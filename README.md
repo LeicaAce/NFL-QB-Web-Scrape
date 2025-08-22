@@ -1,82 +1,84 @@
-Avery Junius
-USC ID: 1491496319
-GITHUB: AJUNIUS
 
-Requirements
-Python Version: 3.11.9
+# 🏈 NFL Quarterback Performance & Playoff Correlation
 
-File Structure
-.
-├── data                                            # Generated CSV files and figures
-├── src                                             # Source code
-    ├── config.py                                   # Configuration file for mappings
-    ├── get_data.py                                 # Scrapes passing and rushing data
-    ├── clean_data.py                               # Cleans and processes scraped data
-    ├── export_csv.py                               # Combines and exports clean data
-    ├── analyze_data.py                             # Runs statistical tests and generates insights
-    ├── visualize_results.py                        # Creates visualizations for analysis
-    ├── run_analysis_visualization.py               # Full pipeline: analysis + visuals
-    ├── main.py                                     # Entry point for running the project
-├── results                                         # Location of report pdf
-    ├── DSCI510_FinalProjectReport_AveryJunius.pdf
-└── README.md                                       # Project documentation (this file)
-└── requirements.txt                                # Dependency files
+This project analyzes the relationship between NFL quarterback performance and team success, particularly playoff qualification. It scrapes, cleans, and analyzes public data from Pro Football Reference to uncover which QB metrics best correlate with playoff appearances.
 
-Major Dependencies:
-pandas: For data manipulation and analysis.
-matplotlib: For creating static visualizations.
-seaborn: For enhanced data visualizations.
-requests: For sending HTTP requests to fetch data.
-BeautifulSoup: For web scraping HTML data.
-time and random: For managing request timing and avoiding rate-limiting.
-scipy: For statistical analysis.
+---
 
-Install the dependencies using 1 of the 2 methods:
-pip install pandas matplotlib seaborn requests beautifulsoup4 scipy 
-OR
-pip install -r requirements.txt
+## 🔍 Project Overview
 
+This project was developed as part of the final assignment for **DSCI 510 (Principles of Programming for Data Science)** in the USC MS in Applied Data Science program.
 
+Key objectives:
+- Scrape NFL quarterback stats and team records from [pro-football-reference.com](https://www.pro-football-reference.com)
+- Merge and clean multiple data sources
+- Explore statistical correlations between individual QB metrics and team playoff status
+- Produce summary outputs and visualizations
 
-File Structure
-main.py: Collects and cleans data from Pro Football Reference.
-run_analysis_visualization.py: Performs data analysis and generates visualizations.
-get_data.py: Collects passing, rushing, and playoff data from Pro Football Reference.
-clean_data.py: Cleans and processes the collected data.
-analyze_data.py: Performs descriptive statistics, correlation analysis, and hypothesis testing.
-visualize_results.py: Generates visualizations for correlation matrices and playoff vs. non-playoff comparisons.
-export_csv.py: Manages the creation and export of cleaned data to CSV files.
-config.py: Configuration file containing standardized mappings for team names.
+---
 
-How to Run the Project
-Step 1: Data Collection and Cleaning
-Navigate to the project directory (final-project-AJunius)
-Run the main.py program to scrape and clean the data:
-python src/main.py
+## 🧠 Skills & Technologies Used
 
-This will:
-Collect passing, rushing, and playoff data for the 2013, 2021, and 2022 NFL seasons.
-Clean and merge the collected data.
-Save the following files:
-qb_pass_stats_<year>.csv: Contains passing statistics for each season.
-qb_rush_stats_<year>.csv: Contains rushing statistics for each season.
-qb_combined_stats_with_playoff_status.csv: Combines passing and rushing statistics with playoff status for all seasons.
+- **Python 3**: Data collection, cleaning, analysis
+- **BeautifulSoup4**: Web scraping
+- **pandas / NumPy**: Data manipulation
+- **matplotlib / seaborn**: Visualization
+- **Regex**: HTML parsing
+- **Git & GitHub**: Version control
 
-Step 2: Data Analysis and Visualization
-After running main.py, execute the run_analysis_visualization.py script:
-python src/run_analysis_visualization.py
+---
 
-This program will:
-Perform descriptive statistics, print them to console and save the results in descriptive_stats.csv.
-Conduct correlation analysis and save correlation matrices as heatmaps for each year (e.g., correlation_matrix_2013.png).
-Generate boxplots comparing playoff vs. non-playoff quarterbacks for key metrics (e.g., passing_yards_comparison.png, rating_comparison.png).
+## 📂 Project Structure
 
-Step 3: Results
-Descriptive statistics are saved in descriptive_stats.csv.
-Visualizations are saved as PNG files in the project directory.
-Statistical analysis outputs (e.g., t-statistics and p-values) are displayed in the terminal.
+```
+├── data/                   # Raw and cleaned data files
+├── results/                # Output analysis CSV and images
+├── src/
+│   ├── get_data.py         # Web scraping functions
+│   ├── run_analysis.py     # Data merging and correlation logic
+│   └── visualize_results.py# Visualization generator
+├── utils/                  # Helper scripts (e.g., cleaning functions)
+└── README.md
+```
 
-Additional Notes
-Data Sources: The data is scraped from Pro Football Reference, covering the 2013, 2021, and 2022 NFL seasons.
-Scope: Only quarterbacks who played at least 10 games in a season are included in the analysis.
-Previously scraped data and visuals are stored in final-project-AJunius\data\
+---
+
+## 🚀 How to Run
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/LeicaAce/NFL-QB-Web-Scrape.git
+   cd NFL-QB-Web-Scrape
+   ```
+
+2. (Optional) Set up a virtual environment:
+   ```bash
+   python -m venv env
+   source env/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. Run data collection:
+   ```bash
+   python src/get_data.py
+   ```
+
+4. Analyze and generate results:
+   ```bash
+   python src/run_analysis.py
+   python src/visualize_results.py
+   ```
+
+---
+
+## 📈 Key Insights
+
+- **Touchdown passes** and **yards per attempt** showed the strongest correlation with team playoff status.
+- QBs on playoff teams had notably **higher passer ratings** and **lower turnover ratios**.
+- The correlation between QB stats and team success supports the premise that efficient quarterback play is a leading indicator of postseason qualification.
+
+---
+
+## 💼 Resume Integration
+
+> *Designed and deployed a Python-based web scraping pipeline to collect and analyze NFL quarterback statistics, identifying performance metrics most correlated with playoff qualification. Demonstrated end-to-end data science workflow including ETL, data cleaning, statistical analysis, and results visualization.*
